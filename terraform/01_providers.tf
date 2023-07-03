@@ -19,3 +19,5 @@ provider "aws" {
     tags = var.default_tags
   }
 }
+
+#I'm just testing git config
