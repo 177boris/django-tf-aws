@@ -38,3 +38,19 @@ variable "private_2_cidr_block" {
   type        = string
   description = "AWS private subnet 2 CIDR block"
 }
+
+
+# Load balancer 
+variable "health_check_path" {
+    type = string
+  description = "Health check path for the default target group"
+  default     = "/ping/"
+}
+
+
+# ECS 
+variable "ecs_cluster_name" {
+    type = string
+    description = "ECS cluster name"
+    default = "sns-django-app-prototype"
+}
