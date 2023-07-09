@@ -39,18 +39,29 @@ variable "private_2_cidr_block" {
   description = "AWS private subnet 2 CIDR block"
 }
 
-
 # Load balancer 
 variable "health_check_path" {
-    type = string
+  type        = string
   description = "Health check path for the default target group"
   default     = "/ping/"
 }
 
-
 # ECS 
 variable "ecs_cluster_name" {
-    type = string
-    description = "ECS cluster name"
-    default = "sns-django-app-prototype"
+  type        = string
+  description = "ECS cluster name"
+  default     = "sns-django-app-prototype"
+}
+
+# Logs 
+variable "log_retention_in_days" {
+  type    = number
+  default = 30
+}
+
+# Key Pair
+variable "ssh_pubkey_file" {
+  type        = string
+  description = "Path to an SSH public key"
+  default     = "~/.ssh/id_rsa.pub"
 }

@@ -98,5 +98,3 @@ resource "aws_route" "public-internet-igw-route" {
   gateway_id             = aws_internet_gateway.gw.id
   destination_cidr_block = "0.0.0.0/0"
 }
-
-# Key pairs 
