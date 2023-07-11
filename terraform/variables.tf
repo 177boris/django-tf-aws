@@ -46,13 +46,6 @@ variable "health_check_path" {
   default     = "/ping/"
 }
 
-# ECS 
-variable "ecs_cluster_name" {
-  type        = string
-  description = "ECS cluster name"
-  default     = "sns-django-app-prototype"
-}
-
 # Logs 
 variable "log_retention_in_days" {
   type    = number
@@ -64,4 +57,59 @@ variable "ssh_pubkey_file" {
   type        = string
   description = "Path to an SSH public key"
   default     = "~/.ssh/id_rsa.pub"
+}
+
+# ECS 
+/* variable "ecs_cluster_name" {
+  type        = string
+  description = "ECS cluster name"
+  default     = "sns-django-app-prototype"
+} */
+
+variable "ecs_cluster_name" {
+  type        = string
+  description = "Name of the ECS cluster"
+  default     = "production"
+}
+
+variable "amis" {
+  type        = map(string)
+  description = "Which AMI to spawn."
+  default = {
+    us-west-1 = "ami-0bd3976c0dbacc605" #TODO Change AMI ID to the correct region 
+  }
+}
+
+variable "instance_type" {
+  type    = string
+  default = "t2.micro"
+}
+
+variable "docker_image_url_django" {
+  type        = string
+  description = "Docker image to run in the ECS cluster"
+  default     = "216761891772.dkr.ecr.us-west-1.amazonaws.com/django-app:latest" #TODO update this
+}
+
+variable "app_count" {
+  type        = string
+  description = "Number of Docker containers to run"
+  default     = 2
+}
+
+# ASG 
+variable "autoscale_min" {
+  type        = number
+  description = "Minimum autoscale (number of EC2)"
+  default     = "1"
+}
+variable "autoscale_max" {
+  type        = number
+  description = "Maximum autoscale (number of EC2)"
+  default     = "5"
+}
+variable "autoscale_desired" {
+  type        = number
+  description = "Desired autoscale (number of EC2)"
+  default     = "2"
 }
