@@ -18,9 +18,9 @@
     "logConfiguration": {
       "logDriver": "awslogs",
       "options": {
-        "awslogs-group": "/ecs/django-app",
+        "awslogs-group": "/ecs/sns-django-app",
         "awslogs-region": "${region}",
-        "awslogs-stream-prefix": "django-app-log-stream"
+        "awslogs-stream-prefix": "sns-django-app-log-stream"
       }
     }
   }

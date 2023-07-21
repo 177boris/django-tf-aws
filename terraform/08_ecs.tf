@@ -6,8 +6,8 @@ data "aws_ami" "instance" {
   owners      = ["amazon"]
   most_recent = true
   filter {
-    name   = "image-id"
-    values = ["ami-*"]
+    name   = "name"
+    values = ["al2022-ami-ecs-hvm-*"]
   }
   filter {
     name   = "architecture"
