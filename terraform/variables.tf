@@ -8,7 +8,7 @@ variable "default_tags" {
   type        = map(string)
   description = "Default tags"
   default = {
-    "Managed_by" = "Terraform",
+    "Managed_by" = "Terraform"
     "Project"    = "SNS Django app prototype"
   }
 }
@@ -112,4 +112,31 @@ variable "autoscale_desired" {
   type        = number
   description = "Desired autoscale (number of EC2)"
   default     = "2"
+}
+
+## RDS
+
+variable "rds_db_name" {
+  type        = string
+  description = "Database name"
+  default     = "Prod_DB"
+}
+
+variable "rds_instance_class" {
+  type        = string
+  description = "Database instance class"
+  default     = "db.t3.micro"
+}
+
+variable "rds_username" {
+  type        = string
+  description = "Database username"
+  default     = "main"
+  sensitive   = true
+}
+
+variable "rds_password" {
+  type        = string
+  description = "Database password"
+  sensitive   = true
 }
