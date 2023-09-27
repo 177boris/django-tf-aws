@@ -67,3 +67,12 @@ resource "aws_ecs_service" "production" {
     container_port   = 8000
   }
 }
+
+resource "aws_ecr_repository" "app" {
+  name = "relearn-sns"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
